@@ -39,7 +39,7 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Go anywhere with your SUVs</h3>
+                        <h3>Go Anywhere With Your SUVs</h3>
                         <p>Comfortable driving</p>
                     </Carousel.Caption>
                 </Carousel.Item>
