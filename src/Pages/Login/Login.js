@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Button, Form, Spinner } from "react-bootstrap";
 import auth from "../../firebase.init";
 import loginImage from '../../Images/login.png';
-import { useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import GoogleLogin from "../GoogleLogin/GoogleLogin";
 
 const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
     const [
         signInWithEmailAndPassword,
         user,
@@ -17,9 +23,13 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [sendPasswordResetEmail, sending, error2] = useSendPasswordResetEmail(
+        auth
+    );
+
     useEffect(() => {
         if (user) {
-            navigate('/');
+            navigate(from, { replace: true });
         }
     }, [user]);
 
@@ -31,11 +41,31 @@ const Login = () => {
         }
     };
 
+    const handleResetPassword = async event => {
+        event.preventDefault();
+        if (email) {
+            await sendPasswordResetEmail(email);
+            if (error2) {
+                alert(error2.message);
+            } else {
+                toast('Sent email');
+            }
+        }
+        else {
+            toast('Enter your email first');
+        }
+    };
+
     if (loading) {
         return <div className="text-center my-5" >
             <Spinner animation="border" variant="warning" />
         </div>;
     }
+
+    if (sending) {
+        return <h2 className="text-center my-5 text-dark">Sending...</h2>;
+    }
+
 
     return (
         <div className="container mt-3 mb-4">
@@ -60,6 +90,11 @@ const Login = () => {
                             Login
                         </Button>
                     </Form>
+                    <br />
+                    <p>Forgot password ?<Button variant="link" className="text-decoration-none text-danger" onClick={handleResetPassword}>Click here to reset</Button></p>
+                    <p>New to Car Warehouse ? <NavLink to='/register' className="text-danger text-decoration-none" >Create an account</NavLink></p>
+                    <ToastContainer />
+                    <GoogleLogin></GoogleLogin>
                 </div>
             </div>
         </div>

@@ -3,7 +3,8 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Button, Form, Spinner } from "react-bootstrap";
 import regImage from '../../Images/registration.png';
 import auth from "../../firebase.init";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import GoogleLogin from "../GoogleLogin/GoogleLogin";
 
 const Register = () => {
 
@@ -85,8 +86,12 @@ const Register = () => {
                             agree ? <Button variant="warning" type="submit" className="px-3">Register</Button> : <Button variant="light" type="submit" className="px-3" disabled>Register</Button>
                         }
                     </Form>
+                    <br />
+                    <p>Already registered ? <NavLink to='/login' className="text-danger text-decoration-none" >Login</NavLink>
+                    </p>
                 </div>
             </div>
+            <GoogleLogin></GoogleLogin>
         </div>
     );
 };
