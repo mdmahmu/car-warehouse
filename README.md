@@ -1,15 +1,26 @@
-# Getting Started with Create React App
+# Project Name : Car Warehouse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is hosted on firebase. [Click here to visit](https://car-warehouse-1d5d4.firebaseapp.com)
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- A modern warehouse management system
+- Available different types of service
+- Could sign up, sign in using email and password
+- Available google sign option
+- Protected route could be seen only by registered members
 
-### `npm start`
+### Technology Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React (library)
+- React router (library)
+- Google firebase (authentication, hosting)
+- React firebase hook(library)
+- React toastify (library)
+- React bootstrap (library)
+- React hook form (library)
+- Express.js (framework)
+- dotenv (module)
+- Nodemon (utility)
+- MongoDB (NodeJS Driver)
+- MongoDB Atlas (cloud database)
