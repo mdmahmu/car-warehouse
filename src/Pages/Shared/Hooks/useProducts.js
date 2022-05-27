@@ -9,7 +9,7 @@ const useProducts = () => {
             .then(res => res.json())
             .then(data => setCars(data));
 
-    }, []);
+    }, [cars]);
 
     return [cars];
 };

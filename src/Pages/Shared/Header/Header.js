@@ -23,11 +23,14 @@ const Header = () => {
                                 <Nav.Link as={NavLink} to="/about">About</Nav.Link>
                             </Nav>
                             <Nav>
-                                <Nav.Link as={NavLink} to="/checkout">Checkout</Nav.Link>
                                 {user ?
-                                    <Nav.Link as={NavLink} to="/login" onClick={() => signOut(auth)}>Log out</Nav.Link> : <>
+                                    <>
+                                        <Nav.Link as={NavLink} to="/my_items">My Items</Nav.Link>
+                                        <Nav.Link as={NavLink} to="/login" onClick={() => signOut(auth)}>Log out</Nav.Link>
+                                    </> : <>
                                         <Nav.Link as={NavLink} to="/register">Register</Nav.Link>
-                                        <Nav.Link as={NavLink} to="/login">Login</Nav.Link></>
+                                        <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
+                                    </>
                                 }
                             </Nav>
                         </Navbar.Collapse>
