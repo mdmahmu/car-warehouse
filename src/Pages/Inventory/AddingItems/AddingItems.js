@@ -32,7 +32,7 @@ const AddingItems = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column w-50 mx-auto">
                 <input className="mb-2" placeholder="Name" {...register("name")} required />
 
-                <input className="mb-2" defaultValue={user.email || user.providerData[0].uid} type="text" placeholder="Email or uid" {...register("email-or-uid")} required />
+                <input className="mb-2" defaultValue={user.email || user.providerData[0].uid} type="text" placeholder="Email or uid" {...register("emailOrUid")} required />
 
                 <input className="mb-2" placeholder="Image URL" {...register("img")} required />
 

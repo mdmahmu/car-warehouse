@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import EachItem from "./EachItem/EachItem";
 
@@ -23,7 +23,11 @@ const Inventory = () => {
 
             <div>
                 {
-                    cars.map(car => <EachItem key={car._id} car={car}></EachItem>)
+                    !cars ?
+                        <div className="text-center my-5" >
+                            <Spinner animation="border" variant="warning" />
+                        </div> :
+                        cars.map(car => <EachItem key={car._id} car={car}></EachItem>)
                 }
             </div>
         </div>
