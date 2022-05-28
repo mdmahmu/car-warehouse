@@ -17,7 +17,7 @@ const MyItems = () => {
         const findingMyItems = async () => {
 
             try {
-                const url = `http://localhost:5000/my_items?emailOrUid=${emailOrUid}`;
+                const url = `https://shielded-scrubland-30055.herokuapp.com/my_items?emailOrUid=${emailOrUid}`;
 
                 const res = await fetch(url, {
                     headers: {

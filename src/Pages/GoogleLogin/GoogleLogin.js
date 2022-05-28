@@ -15,7 +15,7 @@ const GoogleLogin = () => {
     useEffect(() => {
 
         if (user) {
-            const url = `http://localhost:5000/login`;
+            const url = `https://shielded-scrubland-30055.herokuapp.com/login`;
             fetch(url, {
                 method: 'POST',
                 body: JSON.stringify({

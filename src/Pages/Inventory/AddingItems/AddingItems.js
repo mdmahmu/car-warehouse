@@ -8,7 +8,7 @@ const AddingItems = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = (data, e) => {
-        const url = `http://localhost:5000/cars`;
+        const url = `https://shielded-scrubland-30055.herokuapp.com/cars`;
         fetch(url, {
             method: 'POST',
             headers: {

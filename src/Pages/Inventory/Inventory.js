@@ -8,7 +8,7 @@ const Inventory = () => {
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cars`)
+        fetch(`https://shielded-scrubland-30055.herokuapp.com/cars`)
             .then(res => res.json())
             .then(data => setCars(data));
 
@@ -16,7 +16,7 @@ const Inventory = () => {
 
     return (
         <div>
-            <h2 className="text-center mt-4">ALL INVENTORY ITEMS</h2>
+            <h2 className="text-center mt-4">MANAGE INVENTORIES</h2>
             <div className="container text-end">
                 <Button variant="warning" as={NavLink} to='/adding_items' className="px-3">Add New Item</Button>
             </div>

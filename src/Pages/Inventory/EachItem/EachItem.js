@@ -11,7 +11,7 @@ const EachItem = ({ car }) => {
     const handleDelete = (id) => {
         const deleteConfirmation = window.confirm("Do you really want to delete?");
         if (deleteConfirmation) {
-            const url = `http://localhost:5000/cars/${id}`;
+            const url = `https://shielded-scrubland-30055.herokuapp.com/cars/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

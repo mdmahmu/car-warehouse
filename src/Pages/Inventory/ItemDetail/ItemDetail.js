@@ -13,7 +13,7 @@ const ItemDetail = () => {
     const [car, setCar] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cars/${inventoryId}`)
+        fetch(`https://shielded-scrubland-30055.herokuapp.com/cars/${inventoryId}`)
             .then(res => res.json())
             .then(data => setCar(data));
     }, [car]);
@@ -24,7 +24,7 @@ const ItemDetail = () => {
         const quantity = parseInt(car?.quantity);
         const sold = 1;
         const updateData = { quantity, sold };
-        const url = `http://localhost:5000/cars/${inventoryId}`;
+        const url = `https://shielded-scrubland-30055.herokuapp.com/cars/${inventoryId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -45,7 +45,7 @@ const ItemDetail = () => {
         console.log(quantity);
         if (quantity) {
             const updateData = { quantity };
-            const url = `http://localhost:5000/cars/${inventoryId}`;
+            const url = `https://shielded-scrubland-30055.herokuapp.com/cars/${inventoryId}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -67,7 +67,7 @@ const ItemDetail = () => {
     return (
         <div className="container">
             <div className="text-center my-4">
-                <NavLink to='/inventory'><Button variant="warning" className="px-4 py-2">Manage Inventories</Button></NavLink>
+                <NavLink to='/inventory'><Button variant="dark" className="px-4 py-2 text-warning">Manage Inventories</Button></NavLink>
             </div>
             <Row xs={1} md={2} className="g-4">
                 <Col>
