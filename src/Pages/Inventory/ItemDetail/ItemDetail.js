@@ -85,7 +85,7 @@ const ItemDetail = () => {
                     <div className="text-center">
 
                         {
-                            car?.quantity == 0 ? <Button variant="warning" className="w-25" disabled>Delivered</Button> : <Button onClick={handleDelivered} variant="warning" className="w-25">Delivered</Button>
+                            car?.quantity === 0 ? <Button variant="warning" className="w-25" disabled>Delivered</Button> : <Button onClick={handleDelivered} variant="warning" className="w-25">Delivered</Button>
                         }
 
 

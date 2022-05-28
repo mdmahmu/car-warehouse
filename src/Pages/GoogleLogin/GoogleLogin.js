@@ -13,8 +13,25 @@ const GoogleLogin = () => {
     let from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
+
         if (user) {
-            navigate(from, { replace: true });
+            const url = `http://localhost:5000/login`;
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    emailOrUid: user?.user?.email || user?.user?.providerData[0]?.uid
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then(res => res.json())
+                .then(result => {
+                    localStorage.setItem('accessToken', result.jwtAccessToken);
+                    navigate(from, { replace: true });
+                }
+                );
+
         }
     }, [user]);
 

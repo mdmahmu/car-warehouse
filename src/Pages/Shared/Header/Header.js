@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
@@ -7,22 +7,8 @@ import auth from "../../../firebase.init";
 import logo from '../../../Images/logo.png';
 
 const Header = () => {
-    const [myItems, setMyItems] = useState([]);
+
     const [user] = useAuthState(auth);
-
-    const [itemLength, setItemLength] = useState(0);
-
-    useEffect(() => {
-        const emailOrUid = user?.email || user?.providerData[0]?.uid;
-        fetch(`http://localhost:5000/my_items?emailOrUid=${emailOrUid}`)
-            .then(res => res.json())
-            .then(data => {
-                setMyItems(data);
-                setItemLength(data.length);
-            });
-
-    }, [myItems, itemLength]);
-
 
     return (
         <header>
@@ -41,7 +27,7 @@ const Header = () => {
                             <Nav>
                                 {user ?
                                     <>
-                                        <Nav.Link as={NavLink} to="/my_items">My Items ({itemLength}) </Nav.Link>
+                                        <Nav.Link as={NavLink} to="/my_items">My Items</Nav.Link>
                                         <Nav.Link as={NavLink} to="/login" onClick={() => signOut(auth)}>Log out</Nav.Link>
                                     </> : <>
                                         <Nav.Link as={NavLink} to="/register">Register</Nav.Link>

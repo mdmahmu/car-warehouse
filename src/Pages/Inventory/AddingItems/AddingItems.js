@@ -1,7 +1,6 @@
 import React from 'react';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { toast, ToastContainer } from "react-toastify";
 import auth from "../../../firebase.init";
 
 const AddingItems = () => {
@@ -32,7 +31,7 @@ const AddingItems = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column w-50 mx-auto">
                 <input className="mb-2" placeholder="Name" {...register("name")} required />
 
-                <input className="mb-2" defaultValue={user.email || user.providerData[0].uid} type="text" placeholder="Email or uid" {...register("emailOrUid")} required />
+                <input className="mb-2" defaultValue={user?.email || user?.providerData[0]?.uid} type="text" placeholder="Email or uid" {...register("emailOrUid")} required />
 
                 <input className="mb-2" placeholder="Image URL" {...register("img")} required />
 
@@ -48,7 +47,6 @@ const AddingItems = () => {
 
                 <input className="mt-2 mb-4 bg-warning border-0 py-2" type="submit" value='Add Item' />
             </form>
-            <ToastContainer />
         </div>
     );
 };
