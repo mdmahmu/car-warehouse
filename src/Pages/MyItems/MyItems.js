@@ -18,7 +18,7 @@ const MyItems = () => {
 
     return (
         <div>
-            <h1 className="text-center">MY ITEMS: {myItems.length}</h1>
+            <h1 className="text-center">MY ITEMS : {myItems.length}</h1>
 
             {
                 !myItems ?

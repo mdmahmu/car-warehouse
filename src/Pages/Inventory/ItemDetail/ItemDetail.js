@@ -83,7 +83,12 @@ const ItemDetail = () => {
                     <h5>Already Sold: {car?.sold}</h5>
 
                     <div className="text-center">
-                        <Button onClick={handleDelivered} variant="warning" className="w-25">Delivered</Button>
+
+                        {
+                            car?.quantity == 0 ? <Button variant="warning" className="w-25" disabled>Delivered</Button> : <Button onClick={handleDelivered} variant="warning" className="w-25">Delivered</Button>
+                        }
+
+
                     </div>
                 </Col>
             </Row>
